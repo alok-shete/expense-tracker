@@ -1,0 +1,122 @@
+/*Loading*/
+
+.currentLoding {
+  margin: 6.5px;
+}
+
+/* load more  */
+.load {
+  border-radius: 50% !important;
+}
+
+/* top card */
+.text {
+  margin-top: 5px;
+  font-size: large;
+  padding-top: 10px;
+}
+.card {
+  height: 90px;
+  border-radius: 0% !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* custom ver hr */
+.ver {
+  height: 40px;
+  width: 3px;
+  background-color: #e8e6e6;
+}
+
+/* card-body */
+.cardCustom {
+  margin-top: 3% !important;
+  margin-bottom: 2% !important;
+}
+
+/* custom hr tag*/
+.hr {
+  height: 2px;
+  width: auto;
+  background-color: #e8e6e6;
+  margin-bottom: 10px;
+}
+
+/* logout button */
+.logOut {
+  margin-top: 20px;
+  background-color: transparent !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.icon {
+  margin-top: 9px;
+  font-weight: bold;
+  font-size: 40px;
+  color: #6b757d;
+}
+.icon:hover {
+  color: #dc3d45;
+}
+
+/* input */
+#basic-addon1 {
+  border-radius: 0%;
+  border: none;
+  background-color: rgb(240, 240, 240) !important;
+}
+
+input {
+  border: transparent !important;
+  border-radius: 0% !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-size: 15px !important;
+  background-color: rgb(240, 240, 240) !important;
+}
+
+input:focus {
+  box-shadow: none !important;
+}
+
+/* Add button */
+
+.button1 {
+  background-color: #57b846 !important;
+  border: none !important;
+  border-radius: 0% !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.button1:hover {
+  background-color: #333433 !important;
+}
+
+/* radio button */
+.rButton {
+  margin-bottom: 7px;
+}
+.btn-group-toggle {
+  padding: 0% !important;
+}
+
+.radioLable {
+  display: inline-block;
+  border: none;
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+  color: #6b757d;
+  font-size: 0.9em;
+  background: rgb(240, 240, 240);
+}
+
+.radioButton:checked + .radioLable {
+  background: #333433;
+  color: #ffffff;
+}
+
+.radioButton {
+  display: none;
+}

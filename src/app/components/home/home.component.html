@@ -1,0 +1,239 @@
+<!--Balance-->
+<table width="100%">
+  <tr>
+    <th class="text-left">
+      <div class="text">
+        <span class="form-text text-muted"><b>Current Balance</b></span>
+        <div *ngIf="loading">
+          <div class="currentLoding spinner-grow text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <h2 *ngIf="!loading" class="form-text text-muted">
+          <b>{{ remain | currency: "INR" }}</b>
+        </h2>
+      </div>
+    </th>
+    <th class="text-right" width="10%">
+      <button type="button" class="logOut btn" (click)="logOut()">
+        <i class="material-icons icon">&#xe8ac;</i>
+      </button>
+    </th>
+  </tr>
+</table>
+
+<!--Balance End-->
+<!--Income and expense card -->
+<div class="card text-center col-md-12">
+  <div class="cardCustom">
+    <table width="100%">
+      <tr>
+        <th class="text-muted" width="49%">Income</th>
+        <td rowspan="2">
+          <div class="ver"></div>
+        </td>
+        <th class="text-muted" width="49%">Expense</th>
+      </tr>
+      <tr>
+        <th>
+          <span class="text-success">
+            <div *ngIf="loading">
+              <div
+                class="spinner-grow text-success"
+                style="width: 1.5rem; height: 1.5rem"
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <h4 *ngIf="!loading">
+              <b>{{ income | currency: "INR" }}</b>
+            </h4>
+          </span>
+        </th>
+        <th>
+          <span class="text-danger">
+            <div *ngIf="loading">
+              <div
+                class="spinner-grow text-danger"
+                style="width: 1.5rem; height: 1.5rem"
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <h4 *ngIf="!loading">
+              <b>{{ expense | currency: "INR" }}</b>
+            </h4>
+          </span>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--Income and expense card End-->
+<!--Transaction    -->
+<div class="text">
+  <span class="form-text text-muted"><b>Add New Transaction</b></span>
+  <div class="hr"></div>
+</div>
+<form #formId="ngForm" (ngSubmit)="getUservalue(formId.value)">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">
+      <svg
+        width="1em"
+        height="1em"
+        viewBox="0 0 16 16"
+        class="bi bi-pen"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z"
+        />
+        <path
+          fill-rule="evenodd"
+          d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z"
+        />
+        <path
+          d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z"
+        />
+      </svg>
+    </span>
+    <input
+      ngModel
+      name="text"
+      type="text"
+      class="form-control"
+      id="text"
+      autocomplete="off"
+      placeholder="Description"
+      [(ngModel)]="dText"
+      required
+    />
+  </div>
+  <!--Radio Button-->
+  <div class="rButton">
+    <input
+      type="radio"
+      value="+"
+      name="type"
+      required
+      ngModel
+      [(ngModel)]="dType"
+      class="radioButton"
+      id="income"
+    />
+    <label for="income" class="radioLable">
+      <i class="far fa-circle" style="font-size: 18px"></i>
+      Income
+    </label>
+    <input
+      type="radio"
+      value="-"
+      name="type"
+      required
+      ngModel
+      [(ngModel)]="dType"
+      class="radioButton"
+      id="expense"
+    />
+    <label for="expense" class="radioLable">
+      <i class="far fa-circle" style="font-size: 18px"></i>
+      Expense</label
+    >
+  </div>
+  <!--Radio Button End-->
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">
+      <svg
+        width="1em"
+        height="1em"
+        viewBox="0 0 16 16"
+        class="bi bi-cash"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"
+        />
+        <path
+          d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+        />
+      </svg>
+    </span>
+    <input
+      ngModel
+      name="amount"
+      type="number"
+      class="form-control"
+      id="amount"
+      autocomplete="off"
+      placeholder="Amount"
+      [(ngModel)]="dAmount"
+      required
+    />
+  </div>
+  <p *ngIf="tError" class="text-danger">
+    <small id="emailHelp" class="form-text text-muted">
+      <p class="text-danger">Please enter all fields</p>
+    </small>
+  </p>
+  <button type="submit" class="btn btn-primary btn-lg btn-block button1">
+    Add Transaction
+  </button>
+</form>
+<!--Transaction End-->
+<!--History-->
+<div class="text">
+  <span class="form-text text-muted"><b>Transaction History</b></span>
+  <div class="hr"></div>
+</div>
+<div class="text-center" *ngIf="loading">
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div *ngIf="!loading" class="text-center mt-4">
+  <div *ngIf="remain === '0.00'">
+    <small class="form-text text-muted">
+      <b> No Transaction </b>
+    </small>
+  </div>
+</div>
+<div *ngFor="let i of new | slice: 0:load">
+  <div *ngIf="keySize == size">
+    <app-history
+      [text]="data[i].text"
+      [type]="data[i].type"
+      [amount]="data[i].amount"
+      [key]="key[i].key"
+      [date]="data[i].date"
+    ></app-history>
+  </div>
+  <div *ngIf="keySize != size">
+    <app-history
+      [text]="data[i].text"
+      [type]="data[i].type"
+      [amount]="data[i].amount"
+      [date]="data[i].date"
+    >
+    </app-history>
+  </div>
+</div>
+<!--History End-->
+<!--load More-->
+<div *ngIf="!loading">
+  <div *ngIf="load < size">
+    <button
+      type="submit"
+      (click)="loadMore()"
+      class="btn btn-primary btn-lg btn-block button1"
+    >
+      Load More
+    </button>
+  </div>
+</div>
+<!--load More-->
